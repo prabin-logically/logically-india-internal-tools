@@ -13,12 +13,7 @@ export function ToolShell({ meta, children, status, className }: ToolShellProps)
   return (
     <div className={cn("flex h-full flex-col", className)}>
       <header className="border-b border-border px-8 py-6">
-        <div className="flex items-baseline gap-3 text-xs text-text-subtle">
-          <span>{meta.group}</span>
-          <span aria-hidden>/</span>
-          <span>{meta.name}</span>
-        </div>
-        <h1 className="mt-2 text-xl font-semibold text-text">{meta.name}</h1>
+        <h1 className="text-xl font-semibold text-text">{meta.name}</h1>
         <p className="mt-1 text-sm text-text-muted">{meta.description}</p>
       </header>
 

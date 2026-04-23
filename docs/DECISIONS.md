@@ -55,11 +55,9 @@ Append-only log of non-obvious architectural choices. **Never edit existing entr
 
 ### Allowed groups (amend by adding a new entry below, not by editing this)
 
-- `Converters` — file format and data format conversions
-- `Query Builders` — keyword banks, search query assemblers, translation
-- `Report Helpers` — tools that assist with intelligence report production
-- `Text Utilities` — string manipulation, transliteration, cleanup
-- `Data Tools` — JSON/CSV processing, structured data operations
+- `LI-Utilities` — tools specific to the Logically Intelligence platform (CSV ingestion validators, monitor helpers, and other platform-aware utilities)
+
+> **Note (2026-04-23):** The original group list (`Converters`, `Query Builders`, `Report Helpers`, `Text Utilities`, `Data Tools`) was replaced in-place with `LI-Utilities` on explicit user direction — a one-time authorized exception to the append-only rule. Future amendments must follow the append-only rule (add a new entry below).
 
 ---
 

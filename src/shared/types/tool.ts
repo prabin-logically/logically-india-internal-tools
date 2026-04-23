@@ -1,9 +1,4 @@
-export type ToolGroup =
-  | "Converters"
-  | "Query Builders"
-  | "Report Helpers"
-  | "Text Utilities"
-  | "Data Tools";
+export type ToolGroup = "LI-Utilities";
 
 export type ToolStatus = "stable" | "beta" | "experimental";
 

@@ -16,6 +16,7 @@ export default {
         accent: "var(--accent)",
         "accent-hover": "var(--accent-hover)",
         success: "var(--success)",
+        "success-soft": "var(--success-soft)",
         warning: "var(--warning)",
         error: "var(--error)",
       },
