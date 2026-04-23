@@ -1,4 +1,4 @@
-export type ToolGroup = "LI-Utilities";
+export type ToolGroup = "LI Utilities" | "Claude Utilities";
 
 export type ToolStatus = "stable" | "beta" | "experimental";
 

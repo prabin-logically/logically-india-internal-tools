@@ -156,3 +156,39 @@ Append-only log of non-obvious architectural choices. **Never edit existing entr
 **Alternatives considered**: npm or yarn — rejected; team-level consistency on pnpm.
 **Trade-offs accepted**: None material.
 **Revisit when**: pnpm causes a concrete problem.
+
+---
+
+## 2026-04-23 — Add `Claude Utilities` group
+
+**Status**: accepted
+**Context**: Second tool is an upstream converter that pre-processes `.docx` intelligence reports into Markdown + extracted images, packaged as a zip for upload to Claude. This concern is distinct from the LI ingestion pipeline — different downstream consumer, different constraints — and more Claude-adjacent helpers are likely to follow (text cleanup, image batching, attachment prep, etc.).
+**Decision**: Extend the allowed-groups list with `Claude Utilities`. Reserved for tools that prepare, clean, or convert artefacts for use with Claude (or the Claude API) specifically, rather than LI's ingestion pipeline.
+**Alternatives considered**:
+- Reuse `LI-Utilities` — rejected; conflates distinct use-cases and makes the sidebar harder to scan as more tools land.
+- Introduce a broader `Utilities` bucket and drop platform names — rejected; loses the at-a-glance categorisation the sidebar leans on.
+**Trade-offs accepted**: Small vocabulary growth. The two groups stay distinct by intended downstream consumer.
+**Revisit when**: Either group outgrows the sidebar's readability (~8+ tools in one group) and sub-grouping becomes useful, or a tool sits ambiguously between the two (at which point the categorisation needs a rethink).
+
+### Allowed groups — amended
+
+- `LI-Utilities` — tools for the Logically Intelligence platform (CSV ingestion validators, monitor helpers, platform-aware utilities).
+- `Claude Utilities` — tools that prepare or convert artefacts for use with Claude / the Claude API (document pre-processors, prompt helpers, attachment bundlers).
+
+---
+
+## 2026-04-23 — Standardise group naming: space-separated
+
+**Status**: accepted, supersedes the two prior "Allowed groups" lists (from the "Sidebar grouped by category" and "Add Claude Utilities group" entries).
+**Context**: The two existing groups were named inconsistently — `LI-Utilities` (hyphenated) and `Claude Utilities` (space-separated). Names are display-facing labels used in the sidebar, not code identifiers, so the inconsistency leaks into the UI.
+**Decision**: Standardise on **space-separated** group names (Title Case words, separated by a single space, no hyphens or underscores). Rename `LI-Utilities` → `LI Utilities`. Future group names follow the same convention.
+**Alternatives considered**:
+- Hyphenate all (rename `Claude Utilities` → `Claude-Utilities`) — rejected; hyphens read awkwardly in uppercase sidebar headers ("CLAUDE-UTILITIES") and aren't justified when the name isn't an identifier.
+- Keep inconsistent — rejected; gets worse with every new group.
+**Trade-offs accepted**: One additional rename in code (`meta.ts` of li-csv-validator, the `ToolGroup` union). No runtime impact — group strings aren't persisted anywhere outside source.
+**Revisit when**: A future group name genuinely needs punctuation (unlikely).
+
+### Allowed groups — current (authoritative)
+
+- `LI Utilities` — tools for the Logically Intelligence platform (CSV ingestion validators, monitor helpers, platform-aware utilities).
+- `Claude Utilities` — tools that prepare or convert artefacts for use with Claude / the Claude API (document pre-processors, prompt helpers, attachment bundlers).

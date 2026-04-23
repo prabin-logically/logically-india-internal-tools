@@ -1,4 +1,4 @@
-import { Box, FileCheck2 } from "lucide-react";
+import { Box, FileCheck2, FileText } from "lucide-react";
 
 /**
  * Map of icon names (as used in tool `meta.icon`) to lucide-react components.
@@ -8,6 +8,7 @@ import { Box, FileCheck2 } from "lucide-react";
  */
 const ICONS: { [name: string]: typeof Box } = {
   FileCheck2,
+  FileText,
 };
 
 interface ToolIconProps {
